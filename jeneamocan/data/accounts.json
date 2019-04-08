@@ -1,0 +1,252 @@
+[
+  {
+    "accounts": {
+      "name": "MD82VI225911411261241090",
+      "balance": "MD82VI225911411261241090",
+      "currency": "3,885.68",
+      "nature": "Card accounts",
+      "transactions": [
+        {
+          "date": "2019-04-03",
+          "description": "Invoice pay GNF Furnizare Energie",
+          "amount": "799.94 MDL"
+        },
+        {
+          "date": "2019-04-03",
+          "description": "Payment To Client Contract Transferare salariu",
+          "amount": "+4,406.60 MDL"
+        },
+        {
+          "date": "2019-03-31",
+          "description": "Cl Deposit Interests",
+          "amount": "+1.11 MDL"
+        },
+        {
+          "date": "2019-03-29",
+          "description": "Transfer to VISA Card 477918******1711",
+          "amount": "251.00 MDL"
+        },
+        {
+          "date": "2019-03-28",
+          "description": "Retail STAR KEBAB CHISINAU MOLDOVA",
+          "amount": "82.00 MDL"
+        },
+        {
+          "date": "2019-03-28",
+          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
+          "amount": "54.80 MDL"
+        },
+        {
+          "date": "2019-03-28",
+          "description": "Retail MAIB IM VINAMEX SRL Chisinau MOLDOVA",
+          "amount": "31.75 MDL"
+        },
+        {
+          "date": "2019-03-28",
+          "description": "Retail \"LUKOIL\" PECO 10 Chisinau (mun MOLDOVA",
+          "amount": "400.00 MDL"
+        },
+        {
+          "date": "2019-03-27",
+          "description": "Invoice pay INFOSAPR",
+          "amount": "217.75 MDL"
+        },
+        {
+          "date": "2019-03-27",
+          "description": "Invoice pay MOLDOVAGAZ",
+          "amount": "144.15 MDL"
+        },
+        {
+          "date": "2019-03-27",
+          "description": "Invoice pay INFOCOM",
+          "amount": "2,634.01 MDL"
+        },
+        {
+          "date": "2019-03-27",
+          "description": "Invoice pay INFOCOM",
+          "amount": "53.45 MDL"
+        },
+        {
+          "date": "2019-03-27",
+          "description": "Credit VICTORIABANK FIL14 CHISINAU MOLDOVA",
+          "amount": "+2,000.00 MDL"
+        },
+        {
+          "date": "2019-03-27",
+          "description": "Credit VICTORIABANK FIL14 CHISINAU MOLDOVA",
+          "amount": "+100.00 EUR"
+        },
+        {
+          "date": "2019-03-25",
+          "description": "Invoice pay Arax-Impex",
+          "amount": "186.00 MDL"
+        },
+        {
+          "date": "2019-03-15",
+          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
+          "amount": "46.20 MDL"
+        },
+        {
+          "date": "2019-03-15",
+          "description": "Retail \"LUKOIL\" PECO 107 SAC Chisinau (mun MOLDOVA",
+          "amount": "400.00 MDL"
+        },
+        {
+          "date": "2019-03-13",
+          "description": "Retail SYNEVO MIRCEA CEL BATRIN CHISINAU MOLDOVA",
+          "amount": "256.50 MDL"
+        },
+        {
+          "date": "2019-03-13",
+          "description": "Retail WWW ITICKET MD CHISINAU MOLDOVA",
+          "amount": "1,512.00 MDL"
+        },
+        {
+          "date": "2019-03-06",
+          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
+          "amount": "110.54 MDL"
+        },
+        {
+          "date": "2019-03-04",
+          "description": "Invoice pay MOLDOVAGAZ",
+          "amount": "50.81 MDL"
+        },
+        {
+          "date": "2019-03-04",
+          "description": "Payment To Client Contract Transferare salariu",
+          "amount": "+2,724.43 MDL"
+        },
+        {
+          "date": "2019-03-04",
+          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
+          "amount": "19.40 MDL"
+        },
+        {
+          "date": "2019-03-02",
+          "description": "Retail TRATTORIA DELLA NONNA CHISINAU MOLDOVA",
+          "amount": "240.00 MDL"
+        },
+        {
+          "date": "2019-02-28",
+          "description": "Cl Deposit Interests",
+          "amount": "+2.46 MDL"
+        },
+        {
+          "date": "2019-02-26",
+          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
+          "amount": "37.84 MDL"
+        },
+        {
+          "date": "2019-02-26",
+          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
+          "amount": "85.87 MDL"
+        },
+        {
+          "date": "2019-02-24",
+          "description": "Retail ZOLUSKA_MUGUREL CHISINAU MOLDOVA",
+          "amount": "33.90 MDL"
+        },
+        {
+          "date": "2019-02-24",
+          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
+          "amount": "63.71 MDL"
+        },
+        {
+          "date": "2019-02-24",
+          "description": "Retail UNI FLORA CHISINAU MOLDOVA",
+          "amount": "36.00 MDL"
+        },
+        {
+          "date": "2019-02-23",
+          "description": "Invoice pay GNF Furnizare Energie",
+          "amount": "800.13 MDL"
+        },
+        {
+          "date": "2019-02-23",
+          "description": "Retail SUPERMARKET NR 1 CHISINAU MOLDOVA",
+          "amount": "113.71 MDL"
+        },
+        {
+          "date": "2019-02-23",
+          "description": "ATM ATM208 Toamna de Aur-1 Chisinau (mun MOLDOVA",
+          "amount": "200.00 MDL"
+        },
+        {
+          "date": "2019-02-23",
+          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
+          "amount": "15.52 MDL"
+        },
+        {
+          "date": "2019-02-22",
+          "description": "Invoice pay INFOCOM",
+          "amount": "2,736.56 MDL"
+        },
+        {
+          "date": "2019-02-22",
+          "description": "Invoice pay INFOSAPR",
+          "amount": "217.75 MDL"
+        },
+        {
+          "date": "2019-02-22",
+          "description": "Invoice pay Arax-Impex",
+          "amount": "186.00 MDL"
+        },
+        {
+          "date": "2019-02-22",
+          "description": "Retail CAFENEA KFC CHISINAU MOLDOVA",
+          "amount": "206.00 MDL"
+        },
+        {
+          "date": "2019-02-22",
+          "description": "Note Acceptance ATM VICTORIABANK 184 CHISINAU MOLDOVA",
+          "amount": "+1,800.00 MDL"
+        },
+        {
+          "date": "2019-02-22",
+          "description": "Retail \"LUKOIL\" PECO 10 Chisinau (mun MOLDOVA",
+          "amount": "400.00 MDL"
+        },
+        {
+          "date": "2019-02-21",
+          "description": "Invoice pay INFOCOM",
+          "amount": "57.19 MDL"
+        },
+        {
+          "date": "2019-02-15",
+          "description": "Payment To Client Contract Transferare salariu",
+          "amount": "+505.60 MDL"
+        },
+        {
+          "date": "2019-02-14",
+          "description": "Credit ALIEXPRESS LONDON UNITED KINGDOM",
+          "amount": "+7.64 USD"
+        },
+        {
+          "date": "2019-02-13",
+          "description": "Retail WWW.AIRMOLDOVA.MD CHISINAU MOLDOVA",
+          "amount": "3,648.62 MDL"
+        },
+        {
+          "date": "2019-02-13",
+          "description": "Retail WWW.AIRMOLDOVA.MD CHISINAU MOLDOVA",
+          "amount": "3,648.62 MDL"
+        },
+        {
+          "date": "2019-02-13",
+          "description": "Credit VICTORIABANK AG. 10 CHISINAU MOLDOVA",
+          "amount": "+3,600.00 MDL"
+        },
+        {
+          "date": "2019-02-13",
+          "description": "Credit VICTORIABANK AG. 10 CHISINAU MOLDOVA",
+          "amount": "+200.00 EUR"
+        },
+        {
+          "date": "2019-02-13",
+          "description": "Credit WWW.ALIEXPRESS.COM LONDON UNITED KINGDOM",
+          "amount": "+7.64 USD"
+        }
+      ]
+    }
+  }
+]
