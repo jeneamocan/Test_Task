@@ -1,6 +1,6 @@
-[
-  {
-    "accounts": {
+{
+  "accounts": [
+    {
       "name": "MD82VI225911411261241090",
       "balance": "MD82VI225911411261241090",
       "currency": "3,885.68",
@@ -134,12 +134,12 @@
         {
           "date": "2019 February 26",
           "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
-          "amount": "37.84 MDL"
+          "amount": "85.87 MDL"
         },
         {
           "date": "2019 February 26",
           "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
-          "amount": "85.87 MDL"
+          "amount": "37.84 MDL"
         },
         {
           "date": "2019 February 24",
@@ -163,6 +163,11 @@
         },
         {
           "date": "2019 February 23",
+          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
+          "amount": "15.52 MDL"
+        },
+        {
+          "date": "2019 February 23",
           "description": "Retail SUPERMARKET NR 1 CHISINAU MOLDOVA",
           "amount": "113.71 MDL"
         },
@@ -170,11 +175,6 @@
           "date": "2019 February 23",
           "description": "ATM ATM208 Toamna de Aur-1 Chisinau (mun MOLDOVA",
           "amount": "200.00 MDL"
-        },
-        {
-          "date": "2019 February 23",
-          "description": "Retail MAIB FIDESCO SRL Chisinau MOLDOVA",
-          "amount": "15.52 MDL"
         },
         {
           "date": "2019 February 22",
@@ -248,5 +248,5 @@
         }
       ]
     }
-  }
-]
+  ]
+}

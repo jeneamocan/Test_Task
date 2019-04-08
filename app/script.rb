@@ -17,7 +17,6 @@ class VB_WebBanking
     authentication_check
     check_accounts
     check_transactions
-    add_transactions
     store
   end
 
@@ -94,26 +93,30 @@ class VB_WebBanking
 
   def check_transactions
     browser.goto(TRANSACTIONS_URL)
-    set_date
-    sleep 2 
     puts "Fetching transactions for the last two months"
-    @transactions = Array.new
-    transactions_html.css('li.history-item.success').map do |page|
-      year  = page.xpath('../../preceding-sibling::div[@class = "month-delimiter"]').last.text.split[1]
-      month = page.xpath('../../preceding-sibling::div[@class = "month-delimiter"]').last.text.split[0]
-      day   = page.parent.parent.css('div.day-header').text.split[0]
-      time  = page.css('span.history-item-time').text
-      date  = (year + " " + month + " " + day).to_s
-      description = page.css('span.history-item-description').text.split.join(" ")
-      if !page.css('span.history-item-amount.transaction.income').text.empty?
-        amount = page.css('span.history-item-amount.transaction.income').text
-      elsif !page.css('span.history-item-amount.total').text.empty?
-        amount = page.css('span.history-item-amount.total').text
-      else
-        amount = page.css('span.history-item-amount.transaction').text
+    @accounts.each do |account|
+      browser.div(class: "chosen-container").click
+      browser.div(class: "chosen-drop").span(text: "#{account.name}").click
+      sleep 2
+      set_date
+      sleep 2 
+      transactions_html.css('li.history-item.success').each do |page|
+        year  = page.xpath('../../preceding-sibling::div[@class = "month-delimiter"]').last.text.split[1]
+        month = page.xpath('../../preceding-sibling::div[@class = "month-delimiter"]').last.text.split[0]
+        day   = page.parent.parent.css('div.day-header').text.split[0]
+        time  = page.css('span.history-item-time').text
+        date  = (year + " " + month + " " + day).to_s
+        description = page.css('span.history-item-description').text.split.join(" ")
+        if !page.css('span.history-item-amount.transaction.income').text.empty?
+          amount = page.css('span.history-item-amount.transaction.income').text
+        elsif !page.css('span.history-item-amount.total').text.empty?
+          amount = page.css('span.history-item-amount.total').text
+        else
+          amount = page.css('span.history-item-amount.transaction').text
+        end
+        transaction = Transactions.new(date, description, amount)
+        account.transactions << transaction
       end
-    transaction = Transactions.new(date, description, amount)
-    @transactions << transaction
     end
   end
 
@@ -124,16 +127,9 @@ class VB_WebBanking
     browser.a(text: "#{day}").click
   end
 
-  def add_transactions
-    @accounts.each do |acount|
-      @transactions.each do |transaction|
-        acount.transactions << transaction
-      end
-    end
-  end
-
   def assemble
     hash = Hash.new
+    hash["accounts"] = []
     @accounts.map do |account|
       account_hash = Hash.new
       account_hash['name'] = account.name
@@ -146,18 +142,18 @@ class VB_WebBanking
         transaction_hash['date'] = transaction.date
         transaction_hash['description'] = transaction.description
         transaction_hash['amount'] = transaction.amount
-        account_hash['transactions'].push(transaction_hash)
+        account_hash['transactions'] << (transaction_hash)
       end
-    hash["accounts"] = account_hash
-    hash
+      hash["accounts"] << account_hash
     end
+    hash
   end
 
   def store
-  Dir.mkdir('data') unless File.exists?('data')
-  file_name = 'data/accounts.json'
-  File.open(file_name, 'w') { |file| file.write(JSON.pretty_generate(assemble)) }
-  puts "Accounts saved to #{file_name}"
+    Dir.mkdir('data') unless File.exists?('data')
+    file_name = 'data/accounts.json'
+    File.open(file_name, 'w') { |file| file.write(JSON.pretty_generate(assemble)) }
+    puts "Accounts saved to #{file_name}"
   end
 end
 
