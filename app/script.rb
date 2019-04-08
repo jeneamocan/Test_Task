@@ -5,7 +5,9 @@ require 'json'
 require 'date'
 
 class VB_WebBanking
-  BASE_URL = 'https://web.vb24.md/wb/'.freeze
+  BASE_URL = "https://web.vb24.md/wb/".freeze
+  ACCOUNTS_URL = "#{BASE_URL}#menu/MAIN_215.NEW_CARDS_ACCOUNTS".freeze
+  TRANSACTIONS_URL = "#{BASE_URL}#menu/MAIN_215.CP_HISTORY".freeze
 
   attr_reader :accounts, :transactions
 
@@ -49,21 +51,21 @@ class VB_WebBanking
   end
 
   def local_login
-      file = File.read('data/login.json')
-      json = JSON.parse(file)
-      browser.text_field(name: "login").set(json["login"])
-      browser.text_field(name: "password").set(json["password"])
+    file = File.read('data/login.json')
+    json = JSON.parse(file)
+    browser.text_field(name: "login").set(json["login"])
+    browser.text_field(name: "password").set(json["password"])
   end
 
   def manual_login
-      puts "Enter your login"
-      browser.text_field(name: "login").set(gets.chomp)
-      puts "Enter your password"
-      browser.text_field(name: "password").set(gets.chomp)
-      if browser.text_field(name: "captcha").present?
-        puts "Enter CAPTCHA"
-        browser.text_field(name: "captcha").set(gets.chomp)
-      end
+    puts "Enter your login"
+    browser.text_field(name: "login").set(gets.chomp)
+    puts "Enter your password"
+    browser.text_field(name: "password").set(gets.chomp)
+    if browser.text_field(name: "captcha").present?
+      puts "Enter CAPTCHA"
+      browser.text_field(name: "captcha").set(gets.chomp)
+    end
   end
 
   def accounts_html
@@ -75,23 +77,23 @@ class VB_WebBanking
   end
 
   def check_accounts
-    browser.goto("https://web.vb24.md/wb/#menu/MAIN_215.NEW_CARDS_ACCOUNTS")
+    browser.goto(ACCOUNTS_URL)
     puts "Fetching account informatrion"
     @accounts = Array.new
     accounts_html.css('div.contracts-section').map do |page|
       unless page.css('div.section-title.no-data-error').any?
-        name      = page.css('div.main-info').css('a.name').text
-        balance   = page.css('div.primary-balance').css('span.amount').first.text
-        currency  = page.css('div.primary-balance').css('span.amount').last.text
-        nature    = page.css('div.section-title.h-small').text.downcase.capitalize
-        account   = Accounts.new(name, balance, currency, nature)
+        name     = page.css('div.main-info').css('a.name').text
+        balance  = page.css('div.primary-balance').css('span.amount').first.text
+        currency = page.css('div.primary-balance').css('span.amount').last.text
+        nature   = page.css('div.section-title.h-small').text.downcase.capitalize
+        account  = Accounts.new(name, balance, currency, nature)
         @accounts << account
       end
     end
   end
 
   def check_transactions
-    browser.goto("https://web.vb24.md/wb/#menu/MAIN_215.CP_HISTORY")
+    browser.goto(TRANSACTIONS_URL)
     set_date
     sleep 2 
     puts "Fetching transactions for the last two months"
@@ -103,15 +105,15 @@ class VB_WebBanking
       time  = page.css('span.history-item-time').text
       date  = (year + " " + month + " " + day).to_s
       description = page.css('span.history-item-description').text.split.join(" ")
-      if not page.css('span.history-item-amount.transaction.income').text.empty?
+      if !page.css('span.history-item-amount.transaction.income').text.empty?
         amount = page.css('span.history-item-amount.transaction.income').text
-      elsif not page.css('span.history-item-amount.total').text.empty?
+      elsif !page.css('span.history-item-amount.total').text.empty?
         amount = page.css('span.history-item-amount.total').text
       else
         amount = page.css('span.history-item-amount.transaction').text
       end
-      transaction = Transactions.new(date, description, amount)
-      @transactions << transaction
+    transaction = Transactions.new(date, description, amount)
+    @transactions << transaction
     end
   end
 
@@ -144,7 +146,7 @@ class VB_WebBanking
         transaction_hash['date'] = transaction.date
         transaction_hash['description'] = transaction.description
         transaction_hash['amount'] = transaction.amount
-        account_hash['transactions'].push transaction_hash
+        account_hash['transactions'].push(transaction_hash)
       end
     hash["accounts"] = account_hash
     hash
@@ -154,7 +156,7 @@ class VB_WebBanking
   def store
   Dir.mkdir('data') unless File.exists?('data')
   file_name = 'data/accounts.json'
-  File.open(file_name, 'w'){|file| file.write(JSON.pretty_generate(assemble))}
+  File.open(file_name, 'w') { |file| file.write(JSON.pretty_generate(assemble)) }
   puts "Accounts saved to #{file_name}"
   end
 end
