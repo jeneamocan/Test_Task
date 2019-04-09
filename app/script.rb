@@ -6,6 +6,7 @@ require 'date'
 require 'time'
 require_relative 'accounts.rb'
 require_relative 'transactions.rb'
+require_relative 'estimate.rb'
 
 class VB_WebBanking
 
@@ -91,7 +92,7 @@ class VB_WebBanking
     accounts_html.css('div.contracts-section').map do |page|
       unless page.css('div.section-title.no-data-error').any?
         name     = page.css('div.main-info').css('a.name').text
-        balance  = page.css('div.primary-balance').css('span.amount').first.text.delete(',').to_f
+        balance  = page.css('div.primary-balance').css('span.amount').first.text.delete(',').estimate
         currency = page.css('div.primary-balance').css('span.amount.currency').text
         nature   = page.css('div.section-title.h-small').text.downcase.capitalize
         account  = Accounts.new(name, balance, currency, nature)
@@ -119,13 +120,13 @@ class VB_WebBanking
         date        = Time.parse(year + "-" + month + "-" + day + " " + time)
         description = page.css('span.history-item-description').text.split.join(" ")
         if !page.css('span.history-item-amount.total').text.empty?
-          amount    = page.css('span.history-item-amount.total').css('span[class="amount"]').text.delete(',').to_f
+          amount    = page.css('span.history-item-amount.total').css('span[class="amount"]').text.estimate
           currency  = page.css('span.history-item-amount.total').css('span.amount.currency').text
         elsif !page.css('span.history-item-amount.transaction.income').text.empty?
-          amount    = page.css('span.history-item-amount.transaction.income').css('span[class="amount"]').text.delete(',').to_f
+          amount    = page.css('span.history-item-amount.transaction.income').css('span[class="amount"]').text.estimate
           currency  = page.css('span.history-item-amount.transaction.income').css('span.amount.currency').text
         else
-          amount    = page.css('span.history-item-amount.transaction').css('span[class="amount"]').text.delete(',').to_f
+          amount    = page.css('span.history-item-amount.transaction').css('span[class="amount"]').text.estimate
           currency  = page.css('span.history-item-amount.transaction').css('span.amount.currency').text
         end
 
@@ -176,3 +177,5 @@ parser = VB_WebBanking.new
 parser.run
 parser.store
 puts File.read('data/accounts.json')
+
+
